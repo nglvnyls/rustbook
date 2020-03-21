@@ -4,7 +4,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ### convert_temperatures
 
-#####Setting Up a New Project
+##### Setting Up a New Project
 Inside rustbook I made a new project using Cargo, like so:
 
 ```
