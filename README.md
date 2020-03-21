@@ -2,9 +2,14 @@
 Rustbool is a collection of exercices provided by the book ["The Rust Programming Language"](https://doc.rust-lang.org/book/title-page.html) by Steve Klabnik and Carol Nichols.
 The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.toml of all projects to use Rust 2018 Edition idioms. 
 
-## projects
+### convert_temperatures
 
-- hello_world . Prints "hello_cargo" in the console
-- hello_cargo . prints "hello_cargo" in the console
-- guessing_game . Guess the number between 1-100
-- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
+#####Setting Up a New Project
+Inside rustbook I made a new project using Cargo, like so:
+
+```
+$ cargo new convert_temperatures
+$ cd convert_temperatures
+```
+
+I ........
