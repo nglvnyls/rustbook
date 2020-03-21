@@ -6,3 +6,4 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 - hello_world
 - hello_cargo
+- guessing_game
