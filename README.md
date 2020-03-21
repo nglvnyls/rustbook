@@ -4,6 +4,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ## projects
 
-- hello_world
-- hello_cargo
-- guessing_game
+- hello_world . Prints "hello_cargo" in the console
+- hello_cargo . prints "hello_cargo" in the console
+- guessing_game . Guess the number between 1-100
+- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
