@@ -4,3 +4,14 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 
 ## hello_world
+
+This new project was made using Cargo and it was called “Hello, world!”. 
+
+Run this project in your terminal. 
+```
+$ cargo run
+```
+You get this answer
+```
+Hello, world!
+```
