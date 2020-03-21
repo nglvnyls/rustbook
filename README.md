@@ -33,16 +33,15 @@ I added a ```break``` statement so when when the user wins, the app quits.
 
 To further refine the game’s behavior, rather than crashing the program when the user inputs a non-number, I made the game ignore a non-number so the user could continue guessing
 
-
-
-
-
-
 Run this project in your terminal. 
 ```
 $ cargo run
 ```
 You get this answer
 ```
-Hello, cargo!
+$ cargo run
+   Compiling guessing_game v0.1.0 (file:../guessing_game)
+     Running `target/debug/guessing_game`
+Guess the number!
+Please input your guess.
 ```
