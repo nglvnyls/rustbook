@@ -4,5 +4,5 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ## projects
 
--hello_world
--hello_cargo
+- hello_world
+- hello_cargo
