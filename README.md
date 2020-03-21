@@ -16,7 +16,7 @@ Remember that a crate is a collection of Rust source code files. The project weâ
 
 Cargoâ€™s use of external crates is where it really shines. Before I could write code that uses rand, I needed to modify the Cargo.toml file to include the rand crate as a dependency
 
-I add
+I added
 ```
 [dependencies]
 rand = "0.6.0"
