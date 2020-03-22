@@ -3,7 +3,7 @@ Rustbool is a collection of exercices provided by the book ["The Rust Programmin
 The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.toml of all projects to use Rust 2018 Edition idioms. 
 
 ## variables
-Setting Up a New Project
+### Setting Up a New Project
 Inside rustbook I made a new project using Cargo, like so:
 ```
 $ cargo new variables
