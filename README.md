@@ -2,7 +2,7 @@
 Rustbool is a collection of exercices provided by the book ["The Rust Programming Language"](https://doc.rust-lang.org/book/title-page.html) by Steve Klabnik and Carol Nichols.
 The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.toml of all projects to use Rust 2018 Edition idioms. 
 
-##variables
+## variables
 Setting Up a New Project
 Inside rustbook I made a new project using Cargo, like so:
 ```
@@ -15,7 +15,7 @@ When a variable is immutable, once a value is bound to a name, you can’t chang
 
 But mutability can be very useful. You can make them mutable by adding **mut** in front of the variable name. In addition to allowing this value to change, mut conveys intent to future readers of the code by indicating that other parts of the code will be changing this variable’s value.
 
-####Differences Between Variables and Constants
+#### Differences Between Variables and Constants
 
 Being unable to change the value of a variable might have reminded you of another programming concept that most other languages have: constants. Like immutable variables, constants are values that are bound to a name and are not allowed to change, but there are a few differences between constants and variables.
 
