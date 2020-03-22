@@ -9,3 +9,4 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - guessing_game . Guess the number between 1-100
 - convert_temperatures . Convert temperatures between Fahrenheit and Celsius
 - variables
+- data types
