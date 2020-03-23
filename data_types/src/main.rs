@@ -159,15 +159,21 @@ fn main() {
         println!("Unicode Scalar Values, {:X} = {}",n, from_u32(n).unwrap());
     }
 
+    println!("Array Type");
     println!("Compound Types");
     /*
     Compound types can group multiple values into one type. 
     Rust has two primitive compound types: tuples and arrays
     */
+    println!("Array Type");
     println!("Tuple Type");
     /*
     Tuples have a fixed length: once declared, 
     they cannot grow or shrink in size.
+    */
+    /*
+    We create a tuple by writing a comma-separated 
+    list of values inside parentheses. 
     */
     let tup: (i32, f64, u8) = (500, 6.4, 1);
     
@@ -179,21 +185,41 @@ fn main() {
 
     let one = tup.2;
     println!("Third value of tup tuple is: {}", one);
-
-    let (x, y, z) = tup;
-
-    println!("We can desestructure the tuple into x,y,z. The value of y is: {}", y);
-    /*
-    We create a tuple by writing a comma-separated 
-    list of values inside parentheses. 
-    */
     /*
     Each position in the tuple has a type, 
     and the types of the different values in the 
     tuple don’t have to be the same
     */
+    let (x, y, z) = tup;
 
+    println!("We can desestructure the tuple into x,y,z. The value of y is: {}", y);
+    
+    println!("");
+    println!("Array Type");
+    /*
+    Arrays are useful when you want your data allocated 
+    on the stack rather than the heap.
+    It always have a fixed number of elements.
+    */
 
+    let months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+    /*
+    You would write an array’s type by using square brackets,
+    and within the brackets include the type of each element, 
+    a semicolon, and then the number of elements in the array
+    */
+    let a: [i32; 5] = [1, 2, 3, 4, 5];   
+    for x in &a {
+        println!("array a values, {}",x);
+    }
+
+    let b = [3; 8];
+    for x in &a {
+        println!("array b values, {}",x); //let a = [3,3,3,3,3,3,3,3];
+    }
+
+    println!("First element in array a, a[0] = {}", a[0]);
 
 
 }
