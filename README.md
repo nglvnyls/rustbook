@@ -49,7 +49,11 @@ When this program executes, it checks each if expression in turn and **executes 
 
  ##### Using if in a let Statement
 
- if is an expression
+ **if** is an expression, so we can use it on the **right side** of a let statement
+
+ the values that have the potential to be results from each arm of the if **must be the same type**.If the types are mismatched, we’ll get an error.
+
+
 
 
 
