@@ -40,7 +40,19 @@ fn main() {
         println!("number is not divisible by 4, 3, or 2");
     }
 
-    
+    //if is an expression,
+
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    println!("if condicion is True,the value of number is: {}", number);
 
 
 }
+
+
+
