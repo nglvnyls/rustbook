@@ -12,4 +12,5 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - data types
 - fucntions
 - Comments
-- Control flow
+- Control flows
+- Control flow- loops
