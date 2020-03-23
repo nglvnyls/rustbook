@@ -113,7 +113,7 @@ It can represent:
 
 Unicode Scalar Values range from U+0000 to U+D7FF and U+E000 to U+10FFFF inclusive
 
-## Compound Types
+### Compound Types
 
 #### The Tuple Type
 
@@ -139,6 +139,25 @@ fn main() {
     let a = [1, 2, 3, 4, 5];
 }
 ```
+Arrays are useful when **you want your data allocated on the stack** rather than the heap.
+If you’re unsure whether to use an array or a vector, you should probably use a vector.
+You would write an array’s type by using square brackets, and within the brackets include the type of each element, a semicolon, and then the number of elements in the array.
+```
+fn main() {
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+}
+```
+i32 is the type of each element. After the semicolon, the number 5 indicates the array contains five elements.
+```
+fn main() {
+    let a = [3; 8];
+}
+```
+The array named a will contain 8 elements that will all be set to the value 3 initially.
+If you try to **access an element of an array that is past the end of the array**, the compilation didn’t produce any errors, but the **program resulted in a runtime error** and didn’t exit successfully.
+
+
+
 
 
 
