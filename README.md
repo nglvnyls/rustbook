@@ -89,4 +89,62 @@ Rust supports the basic mathematical operations you’d expect for all of the nu
 - division 
 - and remainder 
 
+#### The Boolean Type
+
+The Boolean type in Rust is specified using **bool**.
+Rust has two possible values.
+
+- true -one byte in size
+- false -one byte in size
+
+#### The Character Type
+
+Rust’s char type is the language’s most primitive alphabetic type.
+**Char** literals are specified with single quotes, as opposed to string literals, which use double quotes.
+Char type is **four bytes in size** and represents a Unicode Scalar Value
+It can represent:
+
+- Accented letters,
+- Chinese,
+- Japanese,
+- Korean characters,
+- emoji,
+- zero-width spaces,
+
+Unicode Scalar Values range from U+0000 to U+D7FF and U+E000 to U+10FFFF inclusive
+
+## Compound Types
+
+#### The Tuple Type
+
+A tuple is a general way of grouping together a number of values with a variety of types into one compound type. 
+```
+fn main() {
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+```
+
+Tuples **have a fixed length**: once declared, they cannot grow or shrink in size.
+We create a tuple by writing a comma-separated list of values inside parentheses.
+To get the individual values out of a tuple, we can use pattern matching to destructure a tuple value.
+we can **access a tuple element directly by using a period (.)** followed by the index of the value we want to access
+
+#### The Array Type
+
+Unlike a tuple, every element of an array** must have the same type**.
+Arrays in Rust are different from arrays in some other languages because **arrays in Rust have a fixed length**, like tuples.
+The values going into an array are written as a comma-separated list inside square brackets
+```
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+}
+```
+
+
+
+
+
+
+
+
 
