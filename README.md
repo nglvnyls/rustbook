@@ -12,12 +12,12 @@ We can call any function we’ve defined by entering its name followed by a set 
 
 Rust doesn’t care where you define your functions, only that they’re defined somewhere. The lines execute in the order in which they appear in the main function.
 
-###Function Parameters
+### Function Parameters
 
 Parameters are special variables that are part of a function’s signature. Technically, the concrete values **are called arguments**,
 
 
-###Function Bodies Contain Statements and Expressions
+### Function Bodies Contain Statements and Expressions
 
 Rust is an expression-based language.
 Let’s look at what statements and expressions are and how their differences affect the bodies of functions.
@@ -26,7 +26,7 @@ Let’s look at what statements and expressions are and how their differences af
 
 **Expressions** evaluate to a **resulting value**
 
-#####Statements. 
+##### Statements. 
 
 - Function definition
 ```
@@ -47,7 +47,7 @@ let y = 6;
   and have both x and y have the value 6; that is not the case in Rust. 
   y = 6 statement does not return a value, so there isn’t anything for x to bind to. you’ll get an error
 
-#####Expressions.
+##### Expressions.
 
 - A simple math operation, such as 5 + 6
 - Calling a function
@@ -57,7 +57,7 @@ let y = 6;
 
  Expressions do **not include ending semicolons**. If you add a semicolon to the end of an expression, you turn it into a statement, which will then not return a value.
 
-###Functions with Return Values
+### Functions with Return Values
 
 Functions can return values to the code that calls them.
 We don’t name return values, but we do **declare their type after an arrow**. 
@@ -68,7 +68,7 @@ If you do not return a value (so an expression), you'll get an error.
 
 ```
 fn plus_one(x: i32) -> i32 {
-    x + 1;
+    x + 1; //this is not an expression. ";" makes it an statement
 }
 ```
 **; changes it from an expression to a statement**, we’ll get an error.
