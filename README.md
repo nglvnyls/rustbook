@@ -67,7 +67,7 @@ If you do not return a value (so an expression), you'll get an error.
 
 ```
 fn plus_one(x: i32) -> i32 {
-    x + 1;
+    x + 1; //this is not an expression. ";" makes it an statement
 }
 ```
 **; changes it from an expression to a statement**, we’ll get an error.
