@@ -9,7 +9,7 @@ Generate up to 186nth Fibonacci number.
 App use unsigned 128 bits integer type (**u128**). Unsigned variants can store numbers from 0 to 2^n - 1, so a u128 can store numbers from 0 to 28 - 1, which equals 0 to 170_141_183_460_469_231_731_687_303_715_884_105_727.
 This values can take untill 186th number of Fibonacci series.
 
-## How to run 
+### How to run 
 
 ```
 $ cd Fibonacci_generator
