@@ -6,111 +6,111 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song.
 
-## Lyrics
+### Lyrics
 
-On the first day of Christmas my true love sent to me
-A partridge in a pear tree
+* On the first day of Christmas my true love sent to me
+* A partridge in a pear tree
 
-On the second day of Christmas my true love sent to me
-Two turtle doves
-And a partridge in a pear tree
+* On the second day of Christmas my true love sent to me
+* Two turtle doves
+* And a partridge in a pear tree
 
-On the third day of Christmas my true love sent to me
-Three French hens, 
-two turtle doves,
-And a partridge in a pear tree
+* On the third day of Christmas my true love sent to me
+* Three French hens, 
+* two turtle doves,
+* And a partridge in a pear tree
 
-On the fourth day of Christmas my true love sent to me
-Four calling birds, 
-three French hens, 
-two turtle doves,
-And a partridge in a pear tree
+* On the fourth day of Christmas my true love sent to me
+* Four calling birds, 
+* three French hens, 
+* two turtle doves,
+* And a partridge in a pear tree
 
-On the fifth day of Christmas my true love sent to me
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the fifth day of Christmas my true love sent to me
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the sixth day of Christmas my true love sent to me
-Six geese a laying, 
-five gold rings, 
-four calling birds
-Three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the sixth day of Christmas my true love sent to me
+* Six geese a laying, 
+* five gold rings, 
+* four calling birds
+* Three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the seventh day of Christmas my true love sent to me
-Seven swans a swimming, 
-six geese a laying, 
-five gold rings
-Four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the seventh day of Christmas my true love sent to me
+* Seven swans a swimming, 
+* six geese a laying, 
+* five gold rings
+* Four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the eighth day of Christmas my true love sent to me
-Eight maids a milking, 
-seven swans a swimming, 
-six geese a laying
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the eighth day of Christmas my true love sent to me
+* Eight maids a milking, 
+* seven swans a swimming, 
+* six geese a laying
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the ninth day of Christmas my true love sent to me
-Nine drummers drumming
-Eight maids a milking, 
-seven swans a swimming, 
-six geese a laying
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the ninth day of Christmas my true love sent to me
+* Nine drummers drumming
+* Eight maids a milking, 
+* seven swans a swimming, 
+* six geese a laying
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the tenth day of Christmas my true love sent to me
-Ten pipers piping,
-Nine drummers drumming,
-Eight maids a milking, 
-seven swans a swimming, 
-six geese a laying
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the tenth day of Christmas my true love sent to me
+* Ten pipers piping,
+* Nine drummers drumming,
+* Eight maids a milking, 
+* seven swans a swimming, 
+* six geese a laying
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the eleventh day of Christmas my true love sent to me
-Eleven ladies dancing,
-Ten pipers piping,
-Nine drummers drumming,
-Eight maids a milking, 
-seven swans a swimming, 
-six geese a laying
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree
+* On the eleventh day of Christmas my true love sent to me
+* Eleven ladies dancing,
+* Ten pipers piping,
+* Nine drummers drumming,
+* Eight maids a milking, 
+* seven swans a swimming, 
+* six geese a laying
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree
 
-On the twelfth day of Christmas my true love sent to me
-Twelve Lords a leaping,
-Eleven ladies dancing,
-Ten pipers piping,
-Nine drummers drumming,
-Eight maids a milking, 
-seven swans a swimming, 
-six geese a laying
-Five gold rings, 
-four calling birds, 
-three French hens, 
-two turtle doves
-And a partridge in a pear tree, and a partridge in a pear tree
+* On the twelfth day of Christmas my true love sent to me
+* Twelve Lords a leaping,
+* Eleven ladies dancing,
+* Ten pipers piping,
+* Nine drummers drumming,
+* Eight maids a milking, 
+* seven swans a swimming, 
+* six geese a laying
+* Five gold rings, 
+* four calling birds, 
+* three French hens, 
+* two turtle doves
+* And a partridge in a pear tree, and a partridge in a pear tree
 
-##Lyrics estructure
+###Lyrics estructure
 
 Lyrics has 12 stanzas. 
 Each stanza begin whit the **same poem only changing the number**, which increase in one each repetition. it Then it adds one poem per stanza
@@ -150,4 +150,10 @@ From second to twelfth, aftes prints first poems, it adds n-1 verses in reverse 
 
 Last stanza repeats the last poem, that is the same as first whith a litte variation, so in code apps add an if condition.
 
+### How to run 
 
+```
+$ cd lyrics_christmas_carol
+$ cargo run
+```
+Console displays the lyrics 
