@@ -10,29 +10,29 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 
 * On the first day of Christmas my true love sent to me
 * A partridge in a pear tree
-
+*
 * On the second day of Christmas my true love sent to me
 * Two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the third day of Christmas my true love sent to me
 * Three French hens, 
 * two turtle doves,
 * And a partridge in a pear tree
-
+*
 * On the fourth day of Christmas my true love sent to me
 * Four calling birds, 
 * three French hens, 
 * two turtle doves,
 * And a partridge in a pear tree
-
+*
 * On the fifth day of Christmas my true love sent to me
 * Five gold rings, 
 * four calling birds, 
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the sixth day of Christmas my true love sent to me
 * Six geese a laying, 
 * five gold rings, 
@@ -40,7 +40,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * Three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the seventh day of Christmas my true love sent to me
 * Seven swans a swimming, 
 * six geese a laying, 
@@ -49,7 +49,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the eighth day of Christmas my true love sent to me
 * Eight maids a milking, 
 * seven swans a swimming, 
@@ -59,7 +59,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the ninth day of Christmas my true love sent to me
 * Nine drummers drumming
 * Eight maids a milking, 
@@ -70,7 +70,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the tenth day of Christmas my true love sent to me
 * Ten pipers piping,
 * Nine drummers drumming,
@@ -82,7 +82,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the eleventh day of Christmas my true love sent to me
 * Eleven ladies dancing,
 * Ten pipers piping,
@@ -95,7 +95,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree
-
+*
 * On the twelfth day of Christmas my true love sent to me
 * Twelve Lords a leaping,
 * Eleven ladies dancing,
@@ -109,7 +109,7 @@ App prints the lyrics to the Christmas carol “The Twelve Days of Christmas,”
 * three French hens, 
 * two turtle doves
 * And a partridge in a pear tree, and a partridge in a pear tree
-
+*
 ###Lyrics estructure
 
 Lyrics has 12 stanzas. 
