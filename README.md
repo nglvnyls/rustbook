@@ -19,3 +19,4 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
 - Ownership
 - References and Borrowing
+- Slice Type
