@@ -49,25 +49,40 @@ fn main() {
 
     println! ("user1.email = {}",user1.email);
 
-    //tuple struct 
+    println! ("user2.email = {}",user2.email);
+    println! ("user2.username = {}",user2.username);
+    println! ("user2.active = {}",user2.active);
+    println! ("user2.sign_in_count = {}",user2.sign_in_count);
+
+    // A tuple struct
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
+   
 
+    // Instantiate a tuple struct
     let black = Color(0, 0, 0);
     let origin = Point(0, 0, 0); 
     //black and origin are diferent types
     //because they’re instances of different tuple structs
 
+    //we can desestructure a tuple struct
+    let Color(red,green,blue) = black;
 
+    println! ("black's first position is {:?}", black.0);
+    //println! ("black is {:?}", black); error main::Color` cannot be formatted using `{:?}` 
+    println!("black contains {:?} as a red, {:?} as a green and {:?} as a blue",red,green,blue);
+    
 
-}
-
-
-fn build_user(email: String, username: String) -> User {
-    User {
-        email, //field init shorthand syntax
-        username,
-        active: true,
-        sign_in_count: 1,
+    fn build_user(email: String, username: String) -> User {
+        User {
+            email, //field init shorthand syntax
+            username,
+            active: true,
+            sign_in_count: 1,
+        }
     }
+
 }
+
+
+
