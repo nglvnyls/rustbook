@@ -2,11 +2,27 @@ fn main() {
     println!("STRUCTS");
 
     struct User {
-        username: String,
+        username: String, //we used the owned String type rather than the &str string slice type
+                          //because we want instances of this struct to own all of its data and 
+                          //for that data to be valid for as long as the entire struct is valid
         email: String,
         sign_in_count: u64,
         active: bool,
     };
+
+    /*
+    struct User {
+        username: &str,
+        email: &str,
+        sign_in_count: u64,
+        active: bool,
+    }
+    It’s possible for structs to store references to data (&str )owned by something else, 
+    but to do so requires the use of lifetimes.
+    The compiler will complain that it needs lifetime specifiers
+    
+    */
+
 
     let mut user1 = User { //assigning mut converts immutable user1 in mutable user1
         email: String::from("someone@example.com"),
@@ -32,6 +48,17 @@ fn main() {
     user1.email = String::from("anotheremail@example.com");
 
     println! ("user1.email = {}",user1.email);
+
+    //tuple struct 
+    struct Color(i32, i32, i32);
+    struct Point(i32, i32, i32);
+
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0); 
+    //black and origin are diferent types
+    //because they’re instances of different tuple structs
+
+
 
 }
 
