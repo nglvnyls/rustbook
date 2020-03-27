@@ -5,27 +5,27 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 <hr>
 
 - [rustbook](#rustbook)
-  - [projects](#projects)
+  - [Method Syntax](#method-syntax)
+    - [Defining Methods](#defining-methods)
 
 <hr>
-## projects
 
-- hello_world . Prints "hello_cargo" in the console
-- hello_cargo . prints "hello_cargo" in the console
-- guessing_game . Guess the number between 1-100
-- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
-- variables
-- data types
-- fucntions
-- Comments
-- Control flows
-- Control flow- loops
-- Convert temperatures between Fahrenheit and Celsius
-- Generate the nth Fibonacci number.
-- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
-- Ownership
-- References and Borrowing
-- Slice Type
-- Structs
-- Rectangle_area
-- Method_syntax
+## Method Syntax
+
+Methods are similar to functions.
+
+Are like functions in:
+
+- declared with the fn keyword and their name 
+- can have parameters 
+- can return values
+- contain some code that is run when they’re called from somewhere else
+
+Are different for functions in:
+
+- are defined within the context of a struct, enum or trait Object
+- first parameter is always self, which represents the instance of the struct the method is being called on.
+  
+### Defining Methods
+
+
