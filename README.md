@@ -22,3 +22,4 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - Slice Type
 - Structs
 - Rectangle_area
+- Method_syntax
