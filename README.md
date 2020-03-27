@@ -4,30 +4,57 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [projects](#projects)
+  - [Match control](#match-control)
+      - [Patterns that Bind to Values](#patterns-that-bind-to-values)
 
 ----
 
-## projects
+## Match control
 
-- hello_world . Prints "hello_cargo" in the console
-- hello_cargo . prints "hello_cargo" in the console
-- guessing_game . Guess the number between 1-100
-- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
-- variables
-- data types
-- fucntions
-- Comments
-- Control flows
-- Control flow- loops
-- Convert temperatures between Fahrenheit and Celsius
-- Generate the nth Fibonacci number.
-- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
-- Ownership
-- References and Borrowing
-- Slice Type
-- Structs
-- Rectangle_area
-- Method_syntax
-- Enum_values
-- Match_control
+**Is an extremely powerful control flow operator**.
+
+Allows to compare a value against a series of patterns and then execute code based on which pattern matches.
+
+Patterns can be made up of:
+
+- literal values,
+- variable names, 
+- wildcards, 
+- and many other things
+
+The compiler confirms that all possible cases are handled.
+
+First, we list the match keyword followed by an expression. 
+
+This seems very similar to an **expression used** with if, but there’s a big difference: with if, the expression needs to return a Boolean value, but here, **it can be any type**
+
+```rust
+match coin { //Next are the match arms.
+        Coin::Penny => 1, //first match arms. Finished with a comma.
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+```
+
+An arm has two parts: 
+  - a pattern (Coin:Penny)
+  - an operator (=>)
+  - some code. (value 1)
+
+it **compares** the resulting value against the pattern of each arm, **in order**.
+
+If a pattern matches the value, the code associated with that pattern is executed.
+
+it can have as many arms as it needs
+
+If you want to run multiple lines of code in a match arm, you can use curly brackets.
+
+#### Patterns that Bind to Values
+
+
+
+
+
+
+
