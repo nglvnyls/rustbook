@@ -2,13 +2,13 @@
 Rustbool is a collection of exercices provided by the book ["The Rust Programming Language"](https://doc.rust-lang.org/book/title-page.html) by Steve Klabnik and Carol Nichols.
 The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.toml of all projects to use Rust 2018 Edition idioms. 
 
-----
+------------------------------------------------------------
 - [rustbook](#rustbook)
-  - [- if let : Concise Control Flow](#ulliif-let--concise-control-flowliul)
-  - [if let : Concise Control Flow](#if-let--concise-control-flow)
-----
+  - [- Concise control Flow with if let](#ulliconcise-control-flow-with-if-letliul)
+  - [Concise control Flow with if let](#concise-control-flow-with-if-let)
+------------------------------------------------------------
 
-## if let : Concise Control Flow 
+## Concise control Flow with if let
 
 It **combines if and let** into a less verbose way to **handle values that match one pattern** while **ignoring the rest**.
 
