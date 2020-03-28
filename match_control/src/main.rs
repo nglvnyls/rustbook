@@ -31,6 +31,7 @@ fn main() {
     println!(" 20 Nickels are equal to {} cents", 20*value_in_cents(Coin::Nickel));
     println!(" 10 Dime    are equal to {} cents", 10*value_in_cents(Coin::Dime));
     println!("  4 Quarter are equal to {} cents", 4*value_in_cents(Coin::Quarter));
+    println!("");
     
 
     //Patterns that binds to values
@@ -49,7 +50,7 @@ fn main() {
         Quarter(UsState),
     }  
     
-    fn value_in_cents2(coin: Coin2) -> u8 {
+    fn value_in_cents2(coin: Coin2) -> u16 {
         match coin {
             Coin2::Penny => 1,
             Coin2::Nickel => 5,
@@ -67,10 +68,12 @@ fn main() {
         }
     }
 
-    println!("45 pennies are equal to {} cents", 45*value_in_cents(Coin2::Penny));
-    println!(" 54 Nickels are equal to {} cents", 54*value_in_cents(Coin2::Nickel));
-    println!(" 23 Dime    are equal to {} cents", 23*value_in_cents(Coin2::Dime));
-    println!("  4 Quarter of Alaska are equal to {} cents", 4*value_in_cents(Coin2::Quarter(UsState::Alaska)));
+    println!("45 pennies are equal to {} cents", 45*value_in_cents2(Coin2::Penny));
+    println!("560 Nickels are equal to {} cents", 560*value_in_cents2(Coin2::Nickel));
+    println!("23 Dime are equal to {} cents", 23*value_in_cents2(Coin2::Dime));
+    println!(" 4 Quarter of Alaska are equal to {} cents", 4*value_in_cents2(Coin2::Quarter(UsState::Alaska)));
+    println!(" 45 Quarter of Alabama are equal to {} cents", 45*value_in_cents2(Coin2::Quarter(UsState::Alabama)));
+    println!("");
 
 
     //Matching with Option<T>
@@ -90,8 +93,11 @@ fn main() {
     }
     
     let five = Some(5);
+    println!("five = {:?}", five);
     let six = plus_one(five); //the variable x in the body of plus_one will have the value Some(5)
+    println!("six = {:?}", six);
     let none = plus_one(None);
+    println!("none = {:?}", none);
 
     /*The _Placeholder
     when we don’t want to list all possible values
