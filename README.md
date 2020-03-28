@@ -31,6 +31,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - Method_syntax
 - Enum_values
 - Match_control
+- if_let_control
 
 
 
