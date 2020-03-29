@@ -4,40 +4,30 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [projects](#projects)
+  - [common_collections](#common_collections)
 
 ----
 
-## projects
+## common_collections
 
-- hello_world . Prints "hello_cargo" in the console
-- hello_cargo . prints "hello_cargo" in the console
-- guessing_game . Guess the number between 1-100
-- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
-- variables
-- data types
-- fucntions
-- Comments
-- Control flows
-- Control flow- loops
-- Convert temperatures between Fahrenheit and Celsius
-- Generate the nth Fibonacci number.
-- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
-- Ownership
-- References and Borrowing
-- Slice Type
-- Structs
-- Rectangle_area
-- Method_syntax
-- Enum_values
-- Match_control
-- if_let_control
-- packages_crates
-- modules_definition
-- path_to_item
-- use_keyboard
-- modules_files
-- common_collections
+They are **a number of very useful data structures.**
+
+They can contain multiple values
+
+**the data** these collections point to is **stored on the heap**, which means the amount of data does not need to be known at compile time and can grow or shrink as the program runs.
+
+Collections that are used very often in Rust programs:
+
+- A vector
+- A string
+- A hash map
+
+
+
+
+
+
+
 
 
 
