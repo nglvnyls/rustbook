@@ -20,9 +20,13 @@ fn main() {
                             //we need to make it mutable using the mut keyword
 
     v.push(5); //The numbers we place inside are all of type i32
+    println!("v mutable : {:?}", v);
     v.push(6);
+    println!("v mutable : {:?}", v);
     v.push(7);
+    println!("v mutable : {:?}", v);
     v.push(8);
+    println!("v mutable : {:?}", v);
 
 
 } // <- v,v2 go out of scope and are freed here
