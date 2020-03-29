@@ -4,39 +4,19 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [projects](#projects)
+  - [modules_files](#modules_files)
 
 ----
 
-## projects
+## modules_files
 
-- hello_world . Prints "hello_cargo" in the console
-- hello_cargo . prints "hello_cargo" in the console
-- guessing_game . Guess the number between 1-100
-- convert_temperatures . Convert temperatures between Fahrenheit and Celsius
-- variables
-- data types
-- fucntions
-- Comments
-- Control flows
-- Control flow- loops
-- Convert temperatures between Fahrenheit and Celsius
-- Generate the nth Fibonacci number.
-- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
-- Ownership
-- References and Borrowing
-- Slice Type
-- Structs
-- Rectangle_area
-- Method_syntax
-- Enum_values
-- Match_control
-- if_let_control
-- packages_crates
-- modules_definition
-- path_to_item
-- use_keyboard
-- modules_files
+All the examples until now  defined multiple modules in one file. 
+
+When modules get large, you might want to move their definitions to a separate file to make the code easier to navigate.
+
+The **mod keyword declares modules**, and Rust looks in a file with the same name as the module for the code that goes into that module.
+
+Rust lets you split a package into multiple crates and a crate into modules so you can refer to items defined in one module from another module. 
 
 
 
