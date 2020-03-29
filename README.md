@@ -4,23 +4,33 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [common_collections](#common_collections)
+  - [vector collection](#vector-collection)
+      - [Creating a New Vector](#creating-a-new-vector)
 
 ----
 
-## common_collections
+## vector collection
 
-They are **a number of very useful data structures.**
+**Vec<T>**, also known as a vector.
 
-They can contain multiple values
+They allow you to **store more** than one value **in a single data structure** that puts all the values next to each other in memory.
 
-**the data** these collections point to is **stored on the heap**, which means the amount of data does not need to be known at compile time and can grow or shrink as the program runs.
+Vectors can **only store values** of the **same type**.
 
-Collections that are used very often in Rust programs:
+They are useful when you have a list of items, such as the lines of text in a file or the prices of items in a shopping cart.
 
-- A vector
-- A string
-- A hash map
+#### Creating a New Vector
+
+To create a new, empty vector, we can call the Vec::new function
+
+```rust
+#![allow(unused_variables)]
+fn main() {
+let v: Vec<i32> = Vec::new();
+}
+```
+
+
 
 
 
