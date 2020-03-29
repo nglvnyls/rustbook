@@ -36,6 +36,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - modules_definition
 - path_to_item
 - use_keyboard
+- modules_files
 
 
 
