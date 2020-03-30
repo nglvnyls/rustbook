@@ -7,6 +7,10 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
   - [vector collection](#vector-collection)
       - [Creating a New Vector](#creating-a-new-vector)
       - [Updating a Vector](#updating-a-vector)
+      - [Dropping a Vector Drops Its Elements](#dropping-a-vector-drops-its-elements)
+      - [Reading Elements of Vectors](#reading-elements-of-vectors)
+      - [Iterating over the Values in a Vector](#iterating-over-the-values-in-a-vector)
+      - [Using an Enum to Store Multiple Types](#using-an-enum-to-store-multiple-types)
 
 ----
 
@@ -18,11 +22,13 @@ They allow you to **store more** than one value **in a single data structure** t
 
 Vectors can **only store values** of the **same type**.
 
-They are useful when you have a list of items, such as the lines of text in a file or the prices of items in a shopping cart.
+They are useful when you have a list of items: ,
+ - such as the lines of text in a file 
+ - the prices of items in a shopping cart.
 
 #### Creating a New Vector
 
-To create a new, empty vector, we can call the Vec::new function
+To create a new, empty vector, we can call the **Vec::new** function
 
 ```rust
 #![allow(unused_variables)]
@@ -46,11 +52,45 @@ annotation.
 
 #### Dropping a Vector Drops Its Elements
 
-A vector is freed when it goes out of scope.
+*A vector is freed when it goes out of scope*.
 
 When the vector gets dropped, **all of its contents** are also **dropped**, meaning those content it holds will be cleaned up. This may seem like a straightforward point but can get a bit more complicated when you start to introduce references to the elements of the vector.
 
+#### Reading Elements of Vectors
 
+There are two ways:
+
+- the **index value**. It  will cause the program to panic because it references a nonexistent element.
+  
+- the **get method** with the index passed as an argument. When the get method is passed an **index that is outside** the vector, **it returns None without panicking**.The code will then have logic to handle having either Some(&element) or None, by exemple wiht "match"
+
+```rust
+#![allow(unused_variables)]
+fn main() {
+let v = vec![1, 2, 3, 4, 5];
+
+let third: &i32 = &v[2];
+println!("The third element is {}", third);
+
+match v.get(2) {
+    Some(third) => println!("The third element is {}", third),
+    None => println!("There is no third element."),
+}
+}
+
+```
+
+#### Iterating over the Values in a Vector
+
+we can iterate through all of the elements rather than use indices to access one at a time.
+
+#### Using an Enum to Store Multiple Types
+
+Vectors can only store values that are the **same type**. This can be inconvenient; there are definitely use cases for needing to store a **list of items of different types**.
+
+Fortunately, the variants of an enum are defined under the same enum type, so when we need to store elements of a different type in a vector, **we can define and use an enum!**
+
+it cans define an enum whose variants will hold the different value types, and then all the enum variants will be considered the same type: that of the enum.
 
 
 
