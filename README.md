@@ -38,7 +38,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - 75 - modules_files
 - 80 - common_collections
 - 81 - collection_vector
-
+- 82 - collection_string
 
 
 
