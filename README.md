@@ -41,6 +41,8 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - 82 - collection_string
 - 82.1 -mean_median_mode
 - 82.2 -strings_pig_latin
+- 82.3 -add_employee_names
+- 90 - Error Handling
 
 
 
