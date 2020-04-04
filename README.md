@@ -4,48 +4,83 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [projects](#projects)
+  - [panic or not to panic](#panic-or-not-to-panic)
+    - [Examples, Prototype Code, and Tests](#examples-prototype-code-and-tests)
+    - [Cases in Which You Have More Information Than the Compiler](#cases-in-which-you-have-more-information-than-the-compiler)
+      - [Guidelines for Error Handling](#guidelines-for-error-handling)
+    - [Creating Custom Types for Validation](#creating-custom-types-for-validation)
 
 ----
 
-## projects
+## panic or not to panic
 
-- 12 - Hello_world . Prints "hello_cargo" in the console
-- 13 - Hello_cargo . prints "hello_cargo" in the console
-- 20 - Guessing_game . Guess the number between 1-100
-- 31 - Variables
-- 32 - Data types
-- 33 - Functions
-- 34 - Comments
-- 35 - Control flows
-- 35.1 - Control flow- loops
-- 35.2 - Convert temperatures between Fahrenheit and Celsius
-- 35.3 - Generate the nth Fibonacci number.
-- 35.4 - Print the lyrics to the Christmas carol “The Twelve Days of Christmas,” taking advantage of the repetition in the song
-- 41 - Ownership
-- 42 - References and Borrowing
-- 43 - Slice Type
-- 51 - Structs
-- 52 - Rectangle_area
-- 53 - Method_syntax
-- 60 - Enum_values
-- 62 - Match_control
-- 63 - if_let_control
-- 71 - packages_crates
-- 72 - modules_definition
-- 73 - path_to_item
-- 74 - use_keyboard
-- 75 - modules_files
-- 80 - common_collections
-- 81 - collection_vector
-- 82 - collection_string
-- 82.1 -mean_median_mode
-- 82.2 -strings_pig_latin
-- 82.3 -add_employee_names
-- 90 - Error Handling
-- 91 - unrecoverable_errors
-- 92 - recoverable_errors
-- 93- panic_or_not
+Call panic or Result?
+
+When code **panics**, there’s **no way to recover**.
+
+Return a **Result value**, you give the calling code options rather than making the decision for it. When failure is expected, it’s more appropriate to return a Result than to make a panic! call
+
+The calling code could choose to:
+
+- attempt to recover in a way that’s appropriate for its situation
+
+- it could decide that an Err value in this case is unrecoverable, so it can call panic! 
+
+Therefore, **returning Result is a good default choice when you’re defining a function that might fail**.
+
+### Examples, Prototype Code, and Tests
+
+The **unwrap and expect** methods are very **handy when prototyping**, before you’re ready to decide how to handle errors.
+
+If a method call fails in a test, you’d want the whole test to fail, even if that method isn’t the functionality under test. Because panic! is how a test is marked as a failure, calling unwrap or expect is exactly what should happen.
+
+### Cases in Which You Have More Information Than the Compiler
+
+It would also be appropriate to call unwrap when you have some other logic that ensures the Result will have an Ok value, but the logic isn’t something the compiler understands.
+
+If **you can ensure by manually inspecting** the code that you’ll **never have an Err** variant, it’s perfectly **acceptable to call unwrap**.
+
+```rust
+use std::net::IpAddr;
+
+let home: IpAddr = "127.0.0.1".parse().unwrap();
+```
+
+#### Guidelines for Error Handling
+
+A **bad state** is when some 
+ - assumption, 
+ - guarantee, 
+ - contract, 
+ - or invariant 
+**has been broken**, such as when: 
+ - invalid values, 
+ - contradictory values, 
+ - or missing values 
+are passed to your code—plus one or more of the following:
+
+  - The bad state is not something that’s expected to happen occasionally.
+ - Your code after this point needs to rely on not being in this bad state.
+ - There’s not a good way to encode this information in the types you use.
+
+If someone calls your code and **passes in values that don’t make sense**, the best choice might be to **call panic!** and alert the person using your library to the bug in their code so they can fix it during development.
+
+**panic!** is often **appropriate** if you’re **calling external code** that is out of your control and **it returns an invalid state** that you have no way of fixing.
+
+having **lots of error checks** in all of your functions would be **verbose and annoying**. Fortunately, you can use **Rust’s type system** (and thus the type checking the compiler does) to **do many of the checks** for you.
+
+### Creating Custom Types for Validation
+
+One way to do validation is to parse the guess as a type desired, and then add a check with if expression.
+
+Other way,  we **make a new type** and **put the validations in a function to create an instance of the type rather than repeating the validations everywhere**. 
+
+That way, it’s safe for functions to use the new type in their signatures and confidently use the values they receive.
+
+
+
+
+
 
 
 
