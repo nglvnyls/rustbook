@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::ErrorKind;
 
-#![allow(unused_variables)]
 fn main() {
     println!("92 Recoverable Errors");
     println!("");
@@ -22,8 +21,8 @@ fn main() {
 
     // one way to handle the Result using a basic tool, 
     //the match expression.alloc
-
-    let f = match f {
+    /*
+    let _f = match f {
         Ok(file) => file, //return the inner file value out of the Ok variant, 
                         //and we then assign that file handle value to the variable f
         Err(error) => { // the value in f will be an instance of Err that contains 
@@ -36,10 +35,10 @@ fn main() {
         Result:: before the Ok and Err variants in the match arms.*/
 
     };
-
+    */
     let f = File::open("hello.txt");
 
-    let f = match f {
+    let _f = match f {
         Ok(file) => file,
         Err(error) => match error.kind() { //The type of the value that File::open 
                                             //returns inside the Err variant is io::Error
@@ -52,7 +51,7 @@ fn main() {
                                             //which indicates the file we’re trying to open doesn’t 
                                             //exist yet. So we match on f, but we also have an 
                                             //inner match on error.kind()
-            ErrorKind::NotFound => match File::create("hello.txt") { //The condition we want to check 
+            ErrorKind::NotFound => match File::create("hellow.txt") { //The condition we want to check 
                                             //in the inner match is whether the value returned by 
                                             //error.kind() is the NotFound variant of the ErrorKind enum
                                             //If it is, we try to create the file with File::create
@@ -64,12 +63,14 @@ fn main() {
         },
     };
 
+    println!("it has been created a file un source directory called 'hellow.txt'");
+
     //That’s a lot of match! The match expression is very useful but also very much a primitive.
     //In Chapter 13, you’ll learn about closures; the Result<T, E> type has many methods that accept a closure 
     //and are implemented using match expressions. Using those methods will make your code more concise
 
 
-    let f = File::open("hello.txt").unwrap_or_else(|error| {
+    let _f = File::open("hello.txt").unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
             File::create("hello.txt").unwrap_or_else(|error| {
                 panic!("Problem creating the file: {:?}", error);
