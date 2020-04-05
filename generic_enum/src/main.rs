@@ -36,4 +36,35 @@ fn main() {
     let optional = Some("abracadabra");// Make `optional` of type `Option<i32>`
     println!("Optional: {:?} ", optional);
 
+    /*Monomorphization is the process of turning generic code 
+    into specific code by filling in the concrete types that are 
+    used when compiled.
+    */
+    let integer = Some(5); //the compiler reads the values that have been 
+                            //used in Option<T> instances and identifies 
+                            //two kinds of Option<T>: one is i32
+    let float = Some(5.0); //the other is f64
+
+    //it expands the generic definition of Option<T> into 
+    //Option_i32 and Option_f64, thereby replacing the generic definition 
+    //with the specific ones
+
+    /*
+    enum Option_i32 {
+        Some(i32),
+        None,
+    }
+
+    enum Option_f64 {
+        Some(f64),
+        None,
+    }
+    */
+
+    
+
+
+
+
+
 }
