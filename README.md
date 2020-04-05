@@ -4,22 +4,13 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [100 - Generic_types_traits_lifetimes](#100---generic_types_traits_lifetimes)
-    - [Removing Duplication by Extracting a Function](#removing-duplication-by-extracting-a-function)
+  - [101 - Generic DATA types](#101---generic-data-types)
 
 ----
 
-## 100 - Generic_types_traits_lifetimes
+## 101 - Generic DATA types
 
-Tools for effectively handling the duplication of concepts.
 
-**Generics** are abstract stand-ins for concrete types or other properties
-
-Similar to the way a function takes parameters with unknown values to run the same code on multiple concrete values, functions can take parameters of some generic type instead of a concrete type, like i32 or String.
-
-### Removing Duplication by Extracting a Function
-
-In the same way that you recognize duplicated code to extract into a function, you’ll start to recognize duplicated code that can use generics.
 
 
 
