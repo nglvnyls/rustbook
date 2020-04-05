@@ -1,3 +1,4 @@
+
 fn main() {
     println!("Generic in enum");
     println!("");
@@ -35,12 +36,4 @@ fn main() {
     let optional = Some("abracadabra");// Make `optional` of type `Option<i32>`
     println!("Optional: {:?} ", optional);
 
-
-
-
-
-
-
-
- 
 }
