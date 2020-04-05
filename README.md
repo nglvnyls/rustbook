@@ -4,11 +4,13 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [101.1 - Generic DATA types in Struct](#1011---generic-data-types-in-struct)
+  - [101.1 - Generic DATA types in Enum](#1011---generic-data-types-in-enum)
 
 ----
 
-## 101.1 - Generic DATA types in Struct
+## 101.1 - Generic DATA types in Enum
 
-We can also define structs to use a generic type parameter in one or more fields using the <> syntax. Listing 10-6 shows how to define a Point<T> struct to hold x and y coordinate values of any type.
+we can define enums to hold generic data types in their variants
+
+When you recognize situations in your code with multiple struct or enum definitions that differ only in the types of the values they hold, you can avoid duplication by using generic types instead.
 
