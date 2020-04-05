@@ -4,13 +4,32 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [101.1 - Generic DATA types in Enum](#1011---generic-data-types-in-enum)
+  - [101.1 - Generic DATA types in Method](#1011---generic-data-types-in-method)
+    - [Monomorphization](#monomorphization)
 
 ----
 
-## 101.1 - Generic DATA types in Enum
+## 101.1 - Generic DATA types in Method
 
-we can define enums to hold generic data types in their variants
+We can implement methods on structs and enums  and use generic types in their definitions, too.
 
-When you recognize situations in your code with multiple struct or enum definitions that differ only in the types of the values they hold, you can avoid duplication by using generic types instead.
+we have to declare T just after impl so we can use it to specify that we’re implementing methods.
+
+By declaring T as a generic type after impl, Rust can identify that the type in the angle brackets in a struct is a generic type rather than a concrete type.
+
+In some situations some generic parameters are declared with impl and some are declared with the method definition
+
+
+
+### Monomorphization
+
+Is the process of **turning generic code into specific code** by filling in the concrete types that are used when compiled. Is the way that your code doesn’t run any slower using generic types than it would with concrete types.
+
+In this process, the compiler does the opposite of the steps we used to create the generic function: the compiler looks at all the places where generic code is called and generates code for the concrete types the generic code is called with.
+
+
+
+
+
+
 
