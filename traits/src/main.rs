@@ -107,6 +107,62 @@ fn main() {
     println!("The largest char is {}", result);
     println!("");
 
+    /*Using Trait Bounds to Conditionally Implement Methods*/
+    println!("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+
+    use std::fmt::Display;
+
+    #[derive(Debug)]
+    struct Pair<T> {
+        x: T,
+        y: T,
+    }
+
+    // Instantiate a `Pair` generic type of i32
+    let p:Pair<i32> = Pair { x:350, y: 98};
+    println!("p = {:?}", p );
+    println!("p.x = {:?}", p.x );
+    println!("p.y = {:?}", p.y );
+
+    // Instantiate a `Pair` generic type of String
+    let c:Pair<&str> = Pair { x:"hhha", y: "ahhh"};
+    println!("c = {:?}", c );
+    println!("c.x = {:?}", c.x );
+    println!("c.y = {:?}", c.y );
+
+    impl<T> Pair<T> { //implements the new function for all T types
+        fn new(x: T, y: T) -> Self { 
+            Self {
+                x,
+                y,
+            }
+        }
+    }
+
+    impl<T: Display + PartialOrd> Pair<T> { //only implements the cmp_display 
+        //method if its inner type T implements the PartialOrd trait that enables 
+        //comparison and the Display trait that enables printing.
+        fn cmp_display(&self) {
+            if self.x >= self.y {
+                println!("The largest member is x = {}", self.x);
+            } else {
+                println!("The largest member is y = {}", self.y);
+            }
+        }
+    }
+
+    println!("p.cmp_display:");
+    p.cmp_display();
+
+    println!("c.cmp_display:");
+    c.cmp_display();
+
+    println!("");
+    /*implement a trait for any type that implements another trait*/
+    println!("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+
+
+
 
     
 }
@@ -117,8 +173,7 @@ In the body of largest we wanted to compare two values of type T using the great
  (>) operator. Because that operator is defined as a default method on the standard library 
  trait std::cmp::PartialOrd, we need to specify PartialOrd in the trait bounds for T so 
  the largest function can work on slices of any type that we can compare. We don’t need 
- to bring PartialOrd into scope because it’s in the prelude. Change the signature of 
- largest to look like this:
+ to bring PartialOrd into scope because it’s in the prelude.
 */
 fn largest<T: PartialOrd + Copy>(list: &[T]) -> T { //To call this code with only those types
     // that implement the Copy trait, we can add Copy to the trait bounds of T! 
