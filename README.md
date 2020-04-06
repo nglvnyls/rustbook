@@ -12,6 +12,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
     - [Specifying Multiple Trait Bounds with the + Syntax](#specifying-multiple-trait-bounds-with-the--syntax)
     - [Clearer Trait Bounds with where Clauses](#clearer-trait-bounds-with-where-clauses)
     - [Returning Types that Implement Traits](#returning-types-that-implement-traits)
+    - [Using Trait Bounds to Conditionally Implement Methods](#using-trait-bounds-to-conditionally-implement-methods)
 
 ----
 
@@ -104,6 +105,40 @@ Closures and iterators create types that only the compiler knows or types that a
 The impl Trait syntax lets you concisely specify that a function returns some type that implements the Iterator trait without needing to write out a very long type.
 
 It cans **only return a single type**.
+
+### Using Trait Bounds to Conditionally Implement Methods
+
+By using a trait bound with an impl block that uses generic type parameters, we can implement methods conditionally for types that implement the specified traits.
+
+We can also conditionally **implement a trait for any type that implements another trait**. Implementations of a trait on any type that satisfies the trait bounds are called **blanket implementations** and are extensively used in the Rust standard library.
+
+The standard library implements the ToString trait on any type that implements the Display trait.
+
+```rust
+impl<T: Display> ToString for T {
+    // --snip--
+}
+```
+
+Because the standard library has this blanket implementation, we can call the to_string method defined by the ToString trait on any type that implements the Display trait. 
+
+For example, we can turn integers into their corresponding String values like this because integers implement Display:
+
+```rust
+let s = 3.to_string();
+}
+```
+
+Traits and trait bounds let us write **code that uses generic type parameters** 
+ - to reduce duplication 
+ - to specify to the compiler that we want the generic type to have particular behavior.
+
+
+
+
+
+
+
 
 
 
