@@ -4,147 +4,26 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [102 - Traits](#102---traits)
-    - [Defining a Trait.](#defining-a-trait)
-  - [Default Implementations](#default-implementations)
-    - [use traits to define functions that accept many different types](#use-traits-to-define-functions-that-accept-many-different-types)
-    - [Trait Bound Syntax](#trait-bound-syntax)
-    - [Specifying Multiple Trait Bounds with the + Syntax](#specifying-multiple-trait-bounds-with-the--syntax)
-    - [Clearer Trait Bounds with where Clauses](#clearer-trait-bounds-with-where-clauses)
-    - [Returning Types that Implement Traits](#returning-types-that-implement-traits)
-    - [Using Trait Bounds to Conditionally Implement Methods](#using-trait-bounds-to-conditionally-implement-methods)
-
+  - [- 103 - Validating References with Lifetimes](#ulli103---validating-references-with-lifetimesliul)
+  - [103 - Validating References with Lifetimes](#103---validating-references-with-lifetimes)
+    - [Preventing Dangling References with Lifetimes](#preventing-dangling-references-with-lifetimes)
 ----
 
-## 102 - Traits
+## 103 - Validating References with Lifetimes
 
-A trait tells the Rust compiler about **functionality a particular type has and can share** with other types.
+Every reference has a lifetime.
 
-We use traits :
- - **to define shared behavior** in an abstract way.
- - to specify that a **generic can be any type** that has **certain behavior**.
+Lifetime is the scope for which that reference is valid.
 
-### Defining a Trait.
+Most of the time, lifetimes are implicit and inferred, just like most of the time, types are inferred.
 
-**methods we can call** on that type are **type’s behavior**.
+We must **annotate types when multiple types are possible**.
 
-Trait definitions are **a way to group method signatures together to define a set of behaviors** necessary to accomplish some purpose.
+we **must annotate lifetimes when the lifetimes** of references could be related in a few **different ways**.
 
-## Default Implementations
+Rust requires us to annotate the relationships using generic lifetime parameters to ensure the actual references used at runtime will definitely be valid.
 
-Sometimes it’s useful to have default behavior for some or all of the methods in a trait instead of requiring implementations for all methods on every type.
-
-Then, as we implement the trait on a particular type:
-  - we can keep 
-  - we can override 
-each method’s default behavior.
-
-### use traits to define functions that accept many different types
-
-### Trait Bound Syntax
-
-The impl Trait syntax is convenient and makes for more concise code in simple cases. The trait bound syntax can express more complexity in other cases. For example, we can have two parameters that implement Summary. Using the impl Trait syntax looks like this:
-
-```rust
-pub fn notify(item1: impl Summary, item2: impl Summary) {
-```
-If we wanted this function to **allow item1 and item2 to have different types**, using impl Trait would be appropriate (as long as both types implement Summary). 
-
-If we wanted to force **both parameters to have the same type**, that’s **only possible to express using a trait bound**, like this:
-
-```rust
-pub fn notify<T: Summary>(item1: T, item2: T) {
-```
-
-### Specifying Multiple Trait Bounds with the + Syntax
-
-We can also specify more than one trait bound. 
-Say we wanted notify to use:
--  display formatting on item 
--  the summarize method.
-
-we specify in the notify definition that item must implement both Display and Summary. 
-
-We can do so using the + syntax:
-
-```rust
-pub fn notify(item: impl Summary + Display) {
-```
-is also valid with trait bounds on generic types:
-
-```rust
-pub fn notify<T: Summary + Display>(item: T) {
-```
-With the two trait bounds specified, the body of notify can call summarize and use {} to format item.
-
-
-### Clearer Trait Bounds with where Clauses
-
-Using too many trait bounds has its downsides. Each generic has its own trait bounds, so functions with multiple generic type parameters can contain lots of trait bound information between the function’s name and its parameter list, making the function signature hard to read. For this reason, Rust has alternate syntax for specifying trait bounds inside a where clause after the function signature. So instead of writing this:
-
-```rust
-fn some_function<T: Display + Clone, U: Clone + Debug>(t: T, u: U) -> i32 {
-```
-we can use a where clause, like this:
-
-```rust
-fn some_function<T, U>(t: T, u: U) -> i32
-    where T: Display + Clone,
-          U: Clone + Debug
-{
-```
-
-### Returning Types that Implement Traits
-
-We can also use the impl Trait syntax in the return position to return a value of some type that implements a trait.
-
-The ability to return a type that is only specified by the trait it implements is especially useful in the context of closures and iterators.
-
-Closures and iterators create types that only the compiler knows or types that are very long to specify. 
-
-The impl Trait syntax lets you concisely specify that a function returns some type that implements the Iterator trait without needing to write out a very long type.
-
-It cans **only return a single type**.
-
-### Using Trait Bounds to Conditionally Implement Methods
-
-By using a trait bound with an impl block that uses generic type parameters, we can implement methods conditionally for types that implement the specified traits.
-
-We can also conditionally **implement a trait for any type that implements another trait**. Implementations of a trait on any type that satisfies the trait bounds are called **blanket implementations** and are extensively used in the Rust standard library.
-
-The standard library implements the ToString trait on any type that implements the Display trait.
-
-```rust
-impl<T: Display> ToString for T {
-    // --snip--
-}
-```
-
-Because the standard library has this blanket implementation, we can call the to_string method defined by the ToString trait on any type that implements the Display trait. 
-
-For example, we can turn integers into their corresponding String values like this because integers implement Display:
-
-```rust
-let s = 3.to_string();
-}
-```
-
-Traits and trait bounds let us write **code that uses generic type parameters** 
- - to reduce duplication 
- - to specify to the compiler that we want the generic type to have particular behavior.
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Preventing Dangling References with Lifetimes
 
 
 
