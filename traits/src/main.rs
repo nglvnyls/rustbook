@@ -158,6 +158,7 @@ fn main() {
     c.cmp_display();
 
     println!("");
+    
     /*implement a trait for any type that implements another trait*/
     println!("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
 
