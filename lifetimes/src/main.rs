@@ -91,8 +91,8 @@ fn main() {
 }
 /*
 fn longest(x: &str, y: &str) -> &str { //Rust can’t tell 
-    //if the reference being returned refers to x or y
-    // it won’t compile.
+    /if the reference being returned refers to x or y
+    /it won’t compile.
     if x.len() > y.len() {
         x
     } else {
