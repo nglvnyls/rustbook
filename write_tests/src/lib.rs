@@ -50,6 +50,31 @@ mod tests {
 
         assert!(!smaller.can_hold_with_error(&larger));
     }
+
+    /*
+    TEST FOR custom message
+    */
+
+    #[test]
+    fn greeting_contains_name() { //we want to test that the 
+                            //name we pass into the function 
+                            //appears in the output
+        let result = greeting("Carol");
+        assert!(
+            result.contains("Carol"),
+            "Greeting did not contain name, value was `{}`", result
+        );
+    }
+
+    #[test]
+    fn greeting_contains_name_wrong() { //we want to test the 
+                            //message printed when assert fails                   //appears in the output
+        let result = greeting("another_thing");
+        assert!(
+            result.contains("Carol"),
+            "Greeting did not contain name, value was: `{}`", result
+        );
+    }
 }
 
 
@@ -67,5 +92,9 @@ impl Rectangle {
 
     fn can_hold_with_error(&self, other: &Rectangle) -> bool { 
         self.width < other.width && self.height > other.height  //we have change < in width equality. That is wrong.
+    }
 }
+
+fn greeting(name: &str) -> String {
+    format!("Hello {}!", name)
 }

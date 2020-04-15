@@ -7,7 +7,9 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
   - [111 - How to Write Tests](#111---how-to-write-tests)
     - [The Anatomy of a Test Function](#the-anatomy-of-a-test-function)
       - [Simplest function](#simplest-function)
-        - [Checking Results with the assert! Macro](#checking-results-with-the-assert-macro)
+      - [Checking Results with the assert! Macro](#checking-results-with-the-assert-macro)
+      - [Adding Custom Failure Messages](#adding-custom-failure-messages)
+      - [Checking for Panics with should_panic](#checking-for-panics-with-should_panic)
 ----
 
 ## 111 - How to Write Tests
@@ -32,7 +34,7 @@ To change a function into a test function, **add #[test] on the line before fn**
         assert_eq!(...
     }
 ```
-##### Checking Results with the assert! Macro
+#### Checking Results with the assert! Macro
 
 The assert! macro, provided by the standard library, is useful when you want **to ensure that some condition in a test evaluates to true**.
 
@@ -41,6 +43,16 @@ assert! macro needs an **argument that evaluates to a Boolean**.
 If the value is:
  - TRUE:   does nothing and the test passes.
  - FALSE: calls the panic! macro, which causes the test to fail
+
+#### Adding Custom Failure Messages
+
+You can also add a custom message to be printed with the failure message as optional arguments to the assert!, assert_eq!, and assert_ne! macros.
+
+Custom **messages are useful to document** what an assertion means; when a test fails, you’ll have a better idea of what the problem is with the code.
+
+
+#### Checking for Panics with should_panic
+
 
 
 
