@@ -4,25 +4,45 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [103 - Validating References with Lifetimes](#103---validating-references-with-lifetimes)
-    - [Preventing Dangling References with Lifetimes](#preventing-dangling-references-with-lifetimes)
-    - [The Borrow Checker](#the-borrow-checker)
-    - [Generic Lifetimes in Functions](#generic-lifetimes-in-functions)
-      - [Lifetime Annotation Syntax](#lifetime-annotation-syntax)
-    - [Lifetime Annotations in Function Signatures](#lifetime-annotations-in-function-signatures)
-    - [Lifetime Elision](#lifetime-elision)
-      - [Rules for elision](#rules-for-elision)
+  - [111 - How to Write Tests](#111---how-to-write-tests)
+    - [The Anatomy of a Test Function](#the-anatomy-of-a-test-function)
+      - [Simplest function](#simplest-function)
+        - [Checking Results with the assert! Macro](#checking-results-with-the-assert-macro)
 ----
 
-## 110 - Writing Automated Test
+## 111 - How to Write Tests
 
-Rust is designed with a high degree of concern about the correctness of programs, but correctness is complex and not easy to prove.
+Tests **are Rust functions**.
 
-Rust’s type system shoulders a huge part of this burden, but the type system cannot catch every kind of incorrectness.
+The bodies of test functions **typically perform these** actions:
+  - Set up any needed data or state.
+  - Run the code you want to test.
+  - Assert the results are what you expect.
 
-When we implement and compile some function, Rust does all the type checking and borrow checking, but Rust can’t check that this function will do precisely what we intend.
+### The Anatomy of a Test Function
 
-That’s where tests come in.
+#### Simplest function
+
+A function that’s annotated with the test attribute
+To change a function into a test function, **add #[test] on the line before fn**
+
+```rust
+#[test]
+    fn test_add() {
+        assert_eq!(...
+    }
+```
+##### Checking Results with the assert! Macro
+
+The assert! macro, provided by the standard library, is useful when you want **to ensure that some condition in a test evaluates to true**.
+
+assert! macro needs an **argument that evaluates to a Boolean**. 
+
+If the value is:
+ - TRUE:   does nothing and the test passes.
+ - FALSE: calls the panic! macro, which causes the test to fail
+
+
 
 
 
