@@ -20,7 +20,9 @@ Rust is designed with a high degree of concern about the correctness of programs
 
 Rust’s type system shoulders a huge part of this burden, but the type system cannot catch every kind of incorrectness.
 
+When we implement and compile some function, Rust does all the type checking and borrow checking, but Rust can’t check that this function will do precisely what we intend.
 
+That’s where tests come in.
 
 
 
