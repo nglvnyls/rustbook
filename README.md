@@ -47,7 +47,16 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - 92 - recoverable_errors
 - 93 - panic_or_not
 - 100 - generic_types_traits_lifetimes
-
+- 101 - generic_data_types
+- 101.1 - generic in struct
+- 101.2 - generic_in_enum
+- 101.3 - generic_in_method
+- 102 - traits
+- 103 - lifetimes
+- 110 - automate_tests
+- 111 - write_tests
+- 
+  
 
 
 
