@@ -75,6 +75,59 @@ mod tests {
             "Greeting did not contain name, value was: `{}`", result
         );
     }
+
+    /*
+    Checking that our code returns the correct values we expect
+    */
+    #[test]
+    #[should_panic] //attribute that makes a test pass if the code 
+                    //inside the function panics
+                    //We place the #[should_panic] attribute 
+                    //after the #[test] attribute and before the 
+                    //test function it applies to
+    fn greater_than_100() { // test that ensures that attempting 
+                        //to create a Guess instance with a value 
+                        //outside that range panics.
+        Guess::new(200);
+    }
+
+    /*
+     To make should_panic tests more precise, we can add an 
+     optional expected parameter to the should_panic attribute
+    */
+
+    #[test]
+    #[should_panic(expected = "Guess value must be less than or equal to 100")]
+    fn greater_than_100_2() { //This test will pass because the value 
+        //we put in the should_panic attribute’s expected parameter 
+        //is a substring of the message that the Guess::new function 
+        //panics with
+        Guess2::new(101); 
+    }
+
+    #[test]
+    #[should_panic(expected = "Guess value must be less than or equal to 100")]
+    fn greater_than_100_3() { //This test will FAIL because the value 
+        //we put in the should_panic attribute’s expected parameter 
+        //is NOT a substring of the message that the Guess::new function 
+        //panics with
+        Guess2::new(-1); 
+    }
+
+    /*
+    Test rewritten to use Result<T, E> and return an Err instead of panicking:
+    */
+    #[test]
+    fn it_works2() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(()) //rather than calling the assert_eq! macro, 
+                    //we return Ok(()) when the test passes
+        } else {
+            Err(String::from("two plus two does not equal four")) 
+            // we return an Err with a String inside when the test fails.
+        }
+    }
+
 }
 
 
@@ -84,6 +137,7 @@ struct Rectangle {
     height: u32,
 }
 
+#[allow(dead_code)] //disable the lint that will warn about unused functions.
 impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool { //returns a Boolean, which means 
                                         //it’s a perfect use case for the assert! macro
@@ -95,6 +149,45 @@ impl Rectangle {
     }
 }
 
+#[allow(dead_code)]
 fn greeting(name: &str) -> String {
     format!("Hello {}!", name)
+}
+
+#[allow(dead_code)]
+pub struct Guess {
+    value: i32,
+}
+
+impl Guess {
+    pub fn new(value: i32) -> Guess {
+        if value < 1 || value > 100 {
+            panic!("Guess value must be between 1 and 100, got {}.", value);
+        }
+
+        Guess {
+            value
+        }
+    }
+}
+
+#[allow(dead_code)]
+pub struct Guess2 {
+    value: i32,
+}
+
+impl Guess2 {
+    pub fn new(value: i32) -> Guess {
+        if value < 1 {
+            panic!("Guess value must be greater than or equal to 1, got {}.",
+                   value);
+        } else if value > 100 {
+            panic!("Guess value must be less than or equal to 100, got {}.",
+                   value);
+        }
+
+        Guess {
+            value
+        }
+    }
 }
