@@ -10,6 +10,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
       - [Checking Results with the assert! Macro](#checking-results-with-the-assert-macro)
       - [Adding Custom Failure Messages](#adding-custom-failure-messages)
       - [Checking for Panics with should_panic](#checking-for-panics-with-should_panic)
+      - [Using Result<T, E> in Tests](#using-resultt-e-in-tests)
 ----
 
 ## 111 - How to Write Tests
@@ -53,9 +54,25 @@ Custom **messages are useful to document** what an assertion means; when a test 
 
 #### Checking for Panics with should_panic
 
+It’s also important to **check that our code handles error conditions as we expect**.
 
+We do this by adding another attribute, should_panic, to our test function.
 
+We place the #[should_panic] attribute after the #[test] attribute and before the test function it applies to
 
+To **make should_panic tests more precise**, we can add an optional **expected parameter** to the should_panic attribute
+
+In case of panics returns an string message a substring of the panic message is enough to ensure that pass the test.
+
+#### Using Result<T, E> in Tests
+
+We can also write tests that use Result<T, E>!
+
+In the body of the function, rather than calling the assert_eq! macro, we return Ok(()) when the test passes and an Err with a String inside when the test fails.
+
+Writing tests so they return a Result<T, E> enables you to use the question mark operator in the body of tests, which can be a convenient way to write tests that should fail if any operation within them returns an Err variant.
+
+You **can’t use the #[should_panic] annotation on tests that use Result<T, E>**. Instead, you should return an Err value directly when the test should fail.
 
 
 
