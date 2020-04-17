@@ -55,6 +55,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - 103 - lifetimes
 - 110 - automate_tests
 - 111 - write_tests
+- 112 - controlling_test
 - 
   
 
