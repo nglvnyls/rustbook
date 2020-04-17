@@ -4,75 +4,95 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [111 - How to Write Tests](#111---how-to-write-tests)
-    - [The Anatomy of a Test Function](#the-anatomy-of-a-test-function)
-      - [Simplest function](#simplest-function)
-      - [Checking Results with the assert! Macro](#checking-results-with-the-assert-macro)
-      - [Adding Custom Failure Messages](#adding-custom-failure-messages)
-      - [Checking for Panics with should_panic](#checking-for-panics-with-should_panic)
-      - [Using Result<T, E> in Tests](#using-resultt-e-in-tests)
+  - [111 - Controlling how tests are run](#111---controlling-how-tests-are-run)
+    - [Running Tests in Parallel or Consecutively with](#running-tests-in-parallel-or-consecutively-with)
+    - [Showing Function output](#showing-function-output)
+    - [Running a Subset of Tests by name](#running-a-subset-of-tests-by-name)
+    - [Filtering to run multiple tests.](#filtering-to-run-multiple-tests)
+    - [Ignoring Some Tests Unless Specifically Requested](#ignoring-some-tests-unless-specifically-requested)
 ----
 
-## 111 - How to Write Tests
+## 111 - Controlling how tests are run
 
-Tests **are Rust functions**.
+Just as cargo run compiles your code and then runs the resulting binary, **cargo test** compiles your code in test mode and **runs the resulting test binary**.
 
-The bodies of test functions **typically perform these** actions:
-  - Set up any needed data or state.
-  - Run the code you want to test.
-  - Assert the results are what you expect.
+it can be specified command line **options to change** the default **behavior of cargo test**
 
-### The Anatomy of a Test Function
+options followed by **--**  :goes to cargo test
+**--** options after this   :goes to the resulting test binary
 
-#### Simplest function
+```rust
+  cargo test --help //display the options you can use with cargo test
+  cargo test -- --help //displays the options you can use after the separator --
+```
 
-A function that’s annotated with the test attribute
-To change a function into a test function, **add #[test] on the line before fn**
+### Running Tests in Parallel or Consecutively with
+
+By default **test run in parallel**
+
+Make sure your tests don’t depend on each other or on any shared state, including a shared environment, such as the current working directory or environment variables.
+
+If you **don’t want to run the tests in parallel** or if you want more fine-grained control over the number of threads used, you can **send the --test-threads** flag and the number of threads you want to use to the test binary.
+
+```rust
+  cargo test -- --test-threads=1 //set the number of test threads to 1, telling the program not to use any parallelism
+```
+Running the tests using one thread will take longer than running them in parallel, but the tests won’t interfere with each other if they share state.
+
+### Showing Function output
+
+```rust
+  cargo test -- --show-output //also show the output of successful tests
+```
+
+### Running a Subset of Tests by name
+
+it can be run only the tests pertaining in a particular area.
+
+You can choose which tests to run by **passing cargo test the name** or names of the test(s) you want to run **as an argument.**
+
+```rust
+  cargo test one_hundred 
+```
+The test output lets us know if we had more tests than what this command ran by displaying the ones filtered out at the end of the summary line.
+
+We can’t specify the names of multiple tests in this way; only the first value given to cargo test will be used
+
+### Filtering to run multiple tests.
+
+It can be specified a** part of a test name**.
+
+Any test whose **name matches that value will be run**.
+
+### Ignoring Some Tests Unless Specifically Requested
+
+It can be excluded some test during most runs of cargo test.
+
+Using the ignore attribute to exclude them.
+
+After #[test] we add the #[ignore] line to the test we want to exclude.
 
 ```rust
 #[test]
-    fn test_add() {
-        assert_eq!(...
-    }
+#[ignore]
+fn expensive_test() {
+    // code that takes an hour to run
+}
 ```
-#### Checking Results with the assert! Macro
+If we want to run only the ignored tests, we can use cargo test -- --ignored:
 
-The assert! macro, provided by the standard library, is useful when you want **to ensure that some condition in a test evaluates to true**.
-
-assert! macro needs an **argument that evaluates to a Boolean**. 
-
-If the value is:
- - TRUE:   does nothing and the test passes.
- - FALSE: calls the panic! macro, which causes the test to fail
-
-#### Adding Custom Failure Messages
-
-You can also add a custom message to be printed with the failure message as optional arguments to the assert!, assert_eq!, and assert_ne! macros.
-
-Custom **messages are useful to document** what an assertion means; when a test fails, you’ll have a better idea of what the problem is with the code.
+```rust
+$ cargo test -- --ignored
+```
 
 
-#### Checking for Panics with should_panic
 
-It’s also important to **check that our code handles error conditions as we expect**.
 
-We do this by adding another attribute, should_panic, to our test function.
 
-We place the #[should_panic] attribute after the #[test] attribute and before the test function it applies to
 
-To **make should_panic tests more precise**, we can add an optional **expected parameter** to the should_panic attribute
 
-In case of panics returns an string message a substring of the panic message is enough to ensure that pass the test.
+- 
 
-#### Using Result<T, E> in Tests
-
-We can also write tests that use Result<T, E>!
-
-In the body of the function, rather than calling the assert_eq! macro, we return Ok(()) when the test passes and an Err with a String inside when the test fails.
-
-Writing tests so they return a Result<T, E> enables you to use the question mark operator in the body of tests, which can be a convenient way to write tests that should fail if any operation within them returns an Err variant.
-
-You **can’t use the #[should_panic] annotation on tests that use Result<T, E>**. Instead, you should return an Err value directly when the test should fail.
 
 
 
