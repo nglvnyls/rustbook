@@ -57,6 +57,7 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 - 111 - write_tests
 - 112 - controlling_test
 - 113 - test organization
+- 120 - command_line_program
   
 
 
