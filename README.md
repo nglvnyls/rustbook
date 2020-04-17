@@ -4,87 +4,53 @@ The exercices are made using Rust 1.42.0 or later with edition="2018" in Cargo.t
 
 ----
 - [rustbook](#rustbook)
-  - [111 - Controlling how tests are run](#111---controlling-how-tests-are-run)
-    - [Running Tests in Parallel or Consecutively with](#running-tests-in-parallel-or-consecutively-with)
-    - [Showing Function output](#showing-function-output)
-    - [Running a Subset of Tests by name](#running-a-subset-of-tests-by-name)
-    - [Filtering to run multiple tests.](#filtering-to-run-multiple-tests)
-    - [Ignoring Some Tests Unless Specifically Requested](#ignoring-some-tests-unless-specifically-requested)
+  - [113 - Test organization](#113---test-organization)
+    - [unit tests](#unit-tests)
+      - [The Tests Module and #[cfg(test)]](#the-tests-module-and-cfgtest)
+      - [Testing Private functions](#testing-private-functions)
+    - [integration tests](#integration-tests)
+      - [The tests Directory](#the-tests-directory)
 ----
 
-## 111 - Controlling how tests are run
+## 113 - Test organization
 
-Just as cargo run compiles your code and then runs the resulting binary, **cargo test** compiles your code in test mode and **runs the resulting test binary**.
+The Rust community thinks about tests in terms of two main categories:
 
-it can be specified command line **options to change** the default **behavior of cargo test**
+- unit tests
+- integration tests
 
-options followed by **--**  :goes to cargo test
-**--** options after this   :goes to the resulting test binary
+### unit tests
 
-```rust
-  cargo test --help //display the options you can use with cargo test
-  cargo test -- --help //displays the options you can use after the separator --
-```
+Unit tests are small and more focused, **testing one module in isolation at a time**, and can test private interfaces.
 
-### Running Tests in Parallel or Consecutively with
+You’ll put **unit tests in the src directory in each file with the code** that they’re testing.
 
-By default **test run in parallel**
+The **convention is to create** a **module named tests** in each file to contain the test functions and to annotate the module with cfg(test).
 
-Make sure your tests don’t depend on each other or on any shared state, including a shared environment, such as the current working directory or environment variables.
+#### The Tests Module and #[cfg(test)]
 
-If you **don’t want to run the tests in parallel** or if you want more fine-grained control over the number of threads used, you can **send the --test-threads** flag and the number of threads you want to use to the test binary.
+The #[cfg(test)] annotation on the tests module tells Rust to compile and run the test code only when you run cargo test, not when you run cargo build
 
-```rust
-  cargo test -- --test-threads=1 //set the number of test threads to 1, telling the program not to use any parallelism
-```
-Running the tests using one thread will take longer than running them in parallel, but the tests won’t interfere with each other if they share state.
+if unit tests go in the same files as the code, you’ll use #[cfg(test)] to specify that they shouldn’t be included in the compiled result.
 
-### Showing Function output
 
-```rust
-  cargo test -- --show-output //also show the output of successful tests
-```
+#### Testing Private functions
 
-### Running a Subset of Tests by name
+Rust’s privacy rules do allow you to test private functions.
 
-it can be run only the tests pertaining in a particular area.
+### integration tests
 
-You can choose which tests to run by **passing cargo test the name** or names of the test(s) you want to run **as an argument.**
+There are **entirely external to your library** and use your code in the same way any other external code would, using only the public interface and potentially exercising multiple modules per test.
 
-```rust
-  cargo test one_hundred 
-```
-The test output lets us know if we had more tests than what this command ran by displaying the ones filtered out at the end of the summary line.
+**Units of code** that work correctly on their own **could have problems when integrated**, so test coverage of the integrated code is important as well. 
 
-We can’t specify the names of multiple tests in this way; only the first value given to cargo test will be used
+To create integration tests, you first **need a tests directory.**
 
-### Filtering to run multiple tests.
+#### The tests Directory
 
-It can be specified a** part of a test name**.
+Tests directory would be **created** at the top level of our project directory, **next to src**. 
 
-Any test whose **name matches that value will be run**.
-
-### Ignoring Some Tests Unless Specifically Requested
-
-It can be excluded some test during most runs of cargo test.
-
-Using the ignore attribute to exclude them.
-
-After #[test] we add the #[ignore] line to the test we want to exclude.
-
-```rust
-#[test]
-#[ignore]
-fn expensive_test() {
-    // code that takes an hour to run
-}
-```
-If we want to run only the ignored tests, we can use cargo test -- --ignored:
-
-```rust
-$ cargo test -- --ignored
-```
-
+It can be made **as many test files** as we want to in this directory, and Cargo **will compile each** of the files as **an individual crate**.
 
 
 
